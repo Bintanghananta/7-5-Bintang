@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,23 +13,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::get('/', function () {
-    return view ('home', [
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
+Route::get('/', function(){
+    return view ('Home', [
         "title" => "Home"
     ]);
 });
-Route::get('/about', function () {
-    return view ('about', [
+Route::get('/about', function(){
+    return view ('About',[
         "title" => "About",
-        "nama" => "bintang hananta putra",
-        "email" => "bintanghananta@gmail.com",
+        "nama" =>"Bintang Hananta Putra",
+        "nama" =>"Bintang Hananta Putra",
+        "email" => "hanantabintang@gmail.com",
         "gambar" => "bintang.jpg"
     ]);
 });
-Route::get('/gallery', function () {
-    return view ('gallery', [
+Route::get('/gallery', function(){
+    return view ('Gallery', [
         "title" => "Gallery"
     ]);
 });
+
+Route::resource('/contacts', ContactController::class); 
